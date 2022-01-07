@@ -1,36 +1,18 @@
-name: Github JD-sign bot
+<p align="center">
+    <img src="https://cdn.jsdelivr.net/gh/ruicky/ruicky.github.io/2020/06/05/jd-sign/0.png">
+</p>
 
-on:
-    push:
-        branches:
-            - master
-    workflow_dispatch: # 手动触发
-    schedule:
-        - cron: '5 16 * * *'
-jobs:
-    build:
-        runs-on: ubuntu-latest
+<p align="center">
+    <img alt="Version" src="https://img.shields.io/badge/release-0.0.1-blue"/>
+    <a href="https://github.com/ruicky">
+        <img alt="Author" src="https://img.shields.io/badge/author-ruicky-blueviolet"/>
+    </a>
+</p>
 
-        steps:
-            - name: Checkout codes
-              uses: actions/checkout@v2
-              with:
-                  ref: 'master'
-            - name: Use Node.js
-              uses: actions/setup-node@v1
-              with:
-                node-version: '12.x'
-            - name: Run app
-              run: npm install
-            - run: node app.js
-              env:
-                JD_COOKIE: ${{ secrets.JD_COOKIE }}
-                JD_COOKIE_2: ${{ secrets.JD_COOKIE_2 }} 
-                PUSH_KEY: ${{ secrets.PUSH_KEY }}
-                
-                
-                
-                
-                
-                
-                
+# 京东自动签到
+功能：
+1. 获取签到最新代码
+2. 替换参数值
+3. 签到并发送通知
+
+详情参考文章:[京东定时签到-GitHub 实现](https://ruicky.me/2020/06/05/jd-sign/)
